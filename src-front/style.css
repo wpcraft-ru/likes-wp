@@ -1,3 +1,4 @@
+/* 
 @tailwind base;
 
 h1 {
@@ -12,12 +13,12 @@ h3 {
 
 a {
     @apply text-blue-600 underline;
-}
+} */
 
 /* @import './base.css'; */
-
+/* 
 @tailwind components;
 @tailwind utilities;
 @tailwind screens;
 
-@import "./buttons.css";
+@import "./buttons.css"; */

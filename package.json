@@ -18,6 +18,7 @@
     "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
+    "cssnano": "^4.1.10",
     "sass": "^1.26.10"
   }
 }

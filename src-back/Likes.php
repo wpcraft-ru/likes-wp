@@ -1,10 +1,6 @@
 <?php
 
-/**
- * Plugin Name: # Likes by WS
- * Description: Likes for posts 
- * Plugin URI:  https://wpcraft.ru 
- */
+
 
 namespace U7;
 
@@ -21,18 +17,18 @@ class Likes
         //     // ddd(1);
         // });
 
-        add_shortcode('likes_ws', [__CLASS__, 'render_shortcode']);
+        add_shortcode('likes_wpc', [__CLASS__, 'render_shortcode']);
 
         add_filter('the_content', function ($content) {
             if (!is_singular('post')) {
                 return $content;
             }
 
-            if( has_shortcode( $content, 'likes_ws' ) ) {
+            if( has_shortcode( $content, 'likes_wpc' ) ) {
                 return $content;
             }
 
-            $content = $content . apply_shortcodes('[likes_ws]');
+            // $content = $content . apply_shortcodes('[likes_wpc]');
 
             return $content;
         });
@@ -96,7 +92,7 @@ class Likes
         ob_start();
 ?>
 
-        <button class="btn btn-blue action-like-post" data-action="u7-like" data-postid="<?= $data['post_id'] ?>">
+        <button class="btn-like action-like-post" data-action="u7-like" data-postid="<?= $data['post_id'] ?>">
             <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" />
             </svg>

@@ -4,6 +4,7 @@ module.exports = {
   ],
   // prefix: 'tw-',
   theme: {
+    // important: '.like-wpc',
     container: {
       center: true,
     },
