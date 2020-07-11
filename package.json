@@ -1,0 +1,23 @@
+{
+  "name": "wpcraft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "style.js",
+  "license": "ISC",
+  "scripts": {
+    "build": "parcel build --no-content-hash --no-cache --no-autoinstall --no-source-maps --out-dir public src-front/style.js",
+    "dev": "parcel --no-cache src-front/index.html",
+    "watch": "parcel watch src-front/index.html --no-cache",
+    "clean": "rm public/*"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.8.5",
+    "parcel-bundler": "^1.12.4",
+    "postcss-import": "^12.0.1",
+    "postcss-modules": "^3.2.0",
+    "tailwindcss": "^1.4.6"
+  },
+  "devDependencies": {
+    "sass": "^1.26.10"
+  }
+}
