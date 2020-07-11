@@ -24,11 +24,12 @@ class Likes
                 return $content;
             }
 
-            if( has_shortcode( $content, 'likes_wpc' ) ) {
+            if (has_shortcode($content, 'likes_wpc')) {
                 return $content;
             }
 
-            // $content = $content . apply_shortcodes('[likes_wpc]');
+            $like_section = sprintf('<div>%s</div>', apply_shortcodes('[likes_wpc]'));
+            $content = $content . $like_section;
 
             return $content;
         });
@@ -54,7 +55,10 @@ class Likes
         $data['postId'] = $request->get_param('postId');
         $data['status'] = 200;
 
-        $likes_count = intval(get_post_meta($post->ID, self::$like_counts_key, true));
+        if( ! $likes_count = intval(get_post_meta($post->ID, self::$like_counts_key, true))){
+            $likes_count = 1;
+        }
+        
 
         if ($data['method'] == 'POST') {
             if ($post->ID != $request->get_param('postId')) {
@@ -142,11 +146,12 @@ class Likes
                     })
                 };
 
+                // console.log(url);
+
                 fetch(url, fetch_options)
                     .then(response => {
 
                         response.json().then(data => {
-                            console.log(data);
                             if (data.likes_count) {
                                 // console.log(el.getElementsByTagName('span')[0]);
                                 el.getElementsByTagName('span')[0].innerHTML = data.likes_count;

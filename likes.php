@@ -14,4 +14,6 @@ add_action('plugins_loaded', function(){
 
 add_action('wp_enqueue_scripts', function(){
     wp_enqueue_style( 'likes-wpc', plugins_url('public/style.css', __FILE__) );
+  wp_enqueue_script( 'wp-api' );
+
 });
