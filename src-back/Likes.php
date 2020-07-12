@@ -55,10 +55,10 @@ class Likes
         $data['postId'] = $request->get_param('postId');
         $data['status'] = 200;
 
-        if( ! $likes_count = intval(get_post_meta($post->ID, self::$like_counts_key, true))){
+        if (!$likes_count = intval(get_post_meta($post->ID, self::$like_counts_key, true))) {
             $likes_count = 1;
         }
-        
+
 
         if ($data['method'] == 'POST') {
             if ($post->ID != $request->get_param('postId')) {
@@ -95,14 +95,17 @@ class Likes
 
         ob_start();
 ?>
+        <div class="btn-like-wrapper">
+            <button class="btn-like action-like-post" data-action="u7-like" data-postid="<?= $data['post_id'] ?>">
+                <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" />
+                </svg>
 
-        <button class="btn-like action-like-post" data-action="u7-like" data-postid="<?= $data['post_id'] ?>">
-            <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" />
-            </svg>
+                <span><?= $data['likes_count'] ?></span>
 
-            <span><?= $data['likes_count'] ?></span>
-        </button>
+            </button>
+            <span class="btn-like-text">оцените контент и участвуйте в выборе трендов</span>
+        </div>
 
     <?php
         self::js();

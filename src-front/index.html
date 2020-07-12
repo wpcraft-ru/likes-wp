@@ -4,25 +4,40 @@
 <head>
     <title>Demo</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/css-ocean/style.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        #app {
+            max-width: 900px;
+            margin: auto;
+            padding: 1rem;
+        }
+    </style>
+
 </head>
 
 <body>
-    <div id="app" class="container px-4">
+    <div id="app" class="content">
 
 
-        <section class="demo-btn-likes">
-            <h1>demo-btn-likes</h1>
+        <h1>demo-btn-likes</h1>
+
+        <div class="btn-like-wrapper">
 
             <button class="btn-like">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+                    <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z" />
                 </svg>
 
                 <span>12</span>
             </button>
+            <span class="btn-like-text">оцените контент и участвуйте в выборе трендов</span>
 
-        </section>
+        </div>
 
     </div>
     <script src="style.js"></script>
